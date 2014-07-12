@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitioal.dtd">
+<html>
+    <head>
+        <title>Black List - NELIST</title>
+        <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+        <style type="text/css">
+            body{
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <script type="text/javascript" language="javascript">
+            function add(screen_name){
+                window.location.href="/blacklist/add?screen_name=" + screen_name;
+            }
+            function del(screen_name){
+                window.location.href="/blacklist/del?screen_name=" + screen_name;
+            }
+            function addFriends(screen_name){
+                window.location.href="/blacklist/addFriends?screen_name=" + screen_name;
+            }
+        </script>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/">NELIST</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/mysql">MySQL</a></li>
+                            <li><a href="/couchdb">CouchDB</a></li>
+                            <li class="active"><a href="/blacklist">黑名单</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="container" class="container">
+            <div class="hero-unit">
+                <h1>Black List</h1>
+                <hr />
+                <p>
+                    <form method="post" action="/blacklist/upload" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="file">请选择要上传的黑名单文件：</label>
+                            <input id = 'endel_upload_text' class="form-control" type="text" name="txt"/>
+                            <input type="file" onchange="endel_upload_text.value=this.value" id="file" name="filePath" />
+                            <br />
+                            <input type="submit" class="btn btn-default" name="submit" value="提交" />
+                        </div>
+                    </form>
+                    <ul class="list-group">
+                        <% screen_names.forEach(function(screen_name){ %>
+                        <% include screen_name_row %>
+                        <% }); %>
+                    </ul>
+
+                </p>
+                <div class="input-group">
+                    <input type="text" id="screen_name_input" class="form-control" placeholder="screen_name">
+                    <button class="btn btn-default" onclick="var screen_name=document.getElementById('screen_name_input').value; add(screen_name);">添加</button>
+                    <button class="btn btn-default" onclick="var screen_name=document.getElementById('screen_name_input').value; del(screen_name);">删除</button>
+                    <button class="btn btn-default" onclick="var screen_name=document.getElementById('screen_name_input').value; addFriends(screen_name);">添加其好友</button>
+                </div>
+                <hr/>
+                <a class="btn btn-default" href="/blacklist/download">下载历史数据</a>
+                <a class="btn btn-default" href="/blacklist/scan">开始实时监控</a> 
+                
+            </div>
+            <hr />
+            <footer>
+                <p>NELIST 2014</p>
+            </footer>
+        </div>
+    </body>
+    <script src="/javascripts/jquery-2.1.0.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</html>

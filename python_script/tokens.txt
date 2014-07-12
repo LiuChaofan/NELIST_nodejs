@@ -1,0 +1,3 @@
+request_token: FUHbIUW7DrtchesxDRkoaBUAWrlnE6Zmzd410yEKV28
+request_token_secret: BGj5fxUJoAGxq48JDP0jiFERoV4EEyMninATqmPebSk
+pincode: 4401006

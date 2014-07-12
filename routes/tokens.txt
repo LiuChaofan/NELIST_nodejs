@@ -1,0 +1,3 @@
+request_token: gJmnmTKjOQX9lOTl9kW0TGgbDb7JR96ltTiIOJE
+request_token_secret: lwzzhidfJTgbId1VtvGn8mITZbfh8D0p0gfqnrtuA
+pincode: 6393003
