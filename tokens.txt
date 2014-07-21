@@ -1,3 +1,0 @@
-request_token: irjCF45r8BK2yhKcOF4GK0IvXCbgDMyaaBeQLj7zK8
-request_token_secret: IiYEhX9AcwvUMDdvUGsu7YKVEAtG2GvUsKEK7v6jws
-pincode: 4054268
